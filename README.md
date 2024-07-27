@@ -4,13 +4,14 @@ This is a FastAPI project that involves creating endpoints to provision and dele
 
 ### Commmand to execute the code
 
+`````bash
 (venv) ➜ architect-techtest git:(main) ✗ poetry lock --no-update
 (venv) ➜ architect-techtest git:(main) ✗ poetry install
 (venv) ➜ architect-techtest git:(main) ✗ poetry shell
 (venv) ➜ architect-techtest git:(main) ✗ poetry run pytest
 
 ### Ensure the environment variable is set and then run the FastAPI application
-
+````bash
 (venv) ➜ architect-techtest git:(main) ✗ uvicorn main:app --reload
 
 **Example**:
@@ -77,20 +78,4 @@ This involves creating endpoints to provision and delete VMs, with all operation
 An SDK is provided to simulate the provisioning and deletion of VMs on the hypervisor layer; `from sdk import Client`.
 It includes methods for authentication, creating VMs, and deleting VMs.
 The SDK client's API key is set at the environment level and is not required in requests.
-
-
-curl -X 'POST' \
-  'http://127.0.0.1:8000/vms' \
-  -H 'accept: application/json' \
-  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciJ9.hOROJV-rUAAGWs029hBpc5Unx-7un4g4-TcQxeTS4N4' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "name": "test-vm",
-  "cpu_cores": 2,
-  "memory": 4096,
-  "disk_size": 50,
-  "public_ip": "192.168.1.1",
-  "labels": ["test"]
-}'
-
-````
+`````
