@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+
+**pycache**/
+_.py[cod]
+_$py.class
+
+# IntelliJ
+
+.idea
+
+# MacOS
+
+.DS_Store
+
+#custom
+venv/
+\*.vscode/
