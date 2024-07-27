@@ -1,0 +1,55 @@
+➜  architect-techtest-tested-version git:(main) ✗ curl -X 'POST' \
+  'http://127.0.0.1:8000/token' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -d 'username=testuser&password=testpassword'
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciJ9.hOROJV-rUAAGWs029hBpc5Unx-7un4g4-TcQxeTS4N4","token_type":"bearer"}%                              ➜  architect-techtest-tested-version git:(main) ✗ 
+➜  architect-techtest-tested-version git:(main) ✗ 
+➜  architect-techtest-tested-version git:(main) ✗ curl -X 'POST' \
+  'http://127.0.0.1:8000/vms' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciJ9.hOROJV-rUAAGWs029hBpc5Unx-7un4g4-TcQxeTS4N4' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "name": "test-vm",
+  "cpu_cores": 2,
+  "memory": 4096,
+  "disk_size": 50,
+  "public_ip": "192.168.1.1",
+  "labels": ["test"]
+}'
+
+{"id":"127806ec-1675-4b2a-b975-8c4ca814664f","name":"test-vm","cpu_cores":2,"memory":4096,"disk_size":50,"public_ip":"192.168.1.1","labels":["test"],"status":"created","created_at":"2024-07-27T15:12:25.515555","updated_at":"2024-07-27T15:12:25.515560"}%                                                                                                     ➜  architect-techtest-tested-version git:(main) ✗ 
+➜  architect-techtest-tested-version git:(main) ✗ 
+➜  architect-techtest-tested-version git:(main) ✗ curl -X 'POST' \
+  'http://127.0.0.1:8000/vms' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciJ9.hOROJV-rUAAGWs029hBpc5Unx-7un4g4-TcQxeTS4N4' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "name": "test-vm",
+  "cpu_cores": 2,
+  "memory": 4096,
+  "disk_size": 50,
+  "public_ip": "192.168.1.1",
+  "labels": ["test"]
+}'
+
+{"id":"45cc5323-30db-4745-8ed0-c0b8fd774631","name":"test-vm","cpu_cores":2,"memory":4096,"disk_size":50,"public_ip":"192.168.1.1","labels":["test"],"status":"created","created_at":"2024-07-27T15:13:08.565245","updated_at":"2024-07-27T15:13:08.565249"}%                                                                                                     ➜  architect-techtest-tested-version git:(main) ✗ 
+➜  architect-techtest-tested-version git:(main) ✗ 
+➜  architect-techtest-tested-version git:(main) ✗ curl -X 'DELETE' \
+  'http://127.0.0.1:8000/vms/127806ec-1675-4b2a-b975-8c4ca814664f' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciJ9.hOROJV-rUAAGWs029hBpc5Unx-7un4g4-TcQxeTS4N4'
+
+{"id":"127806ec-1675-4b2a-b975-8c4ca814664f","name":"test-vm","cpu_cores":2,"memory":4096,"disk_size":50,"public_ip":"192.168.1.1","labels":[],"status":"deleted","created_at":"2024-07-27T15:12:25.515555","updated_at":"2024-07-27T15:12:25.515560"}%                                                                                                           ➜  architect-techtest-tested-version git:(main) ✗ 
+➜  architect-techtest-tested-version git:(main) ✗ 
+➜  architect-techtest-tested-version git:(main) ✗ 
+➜  architect-techtest-tested-version git:(main) ✗ 
+➜  architect-techtest-tested-version git:(main) ✗ 
+➜  architect-techtest-tested-version git:(main) ✗ curl -X 'DELETE' \
+  'http://127.0.0.1:8000/vms/dabab923-6d46-4534-99dd-c9082e955aa0' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciJ9.hOROJV-rUAAGWs029hBpc5Unx-7un4g4-TcQxeTS4N4'
+
+{"id":"dabab923-6d46-4534-99dd-c9082e955aa0","name":"test-vm","cpu_cores":2,"memory":4096,"disk_size":50,"public_ip":"192.168.1.1","labels":[],"status":"deleted","created_at":"2024-07-27T15:09:33.152299","updated_at":"2024-07-27T15:09:33.152302"}%                                                                                                           ➜  architect-techtest-tested-version git:(main) ✗ 

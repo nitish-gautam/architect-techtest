@@ -3,7 +3,6 @@ import random
 from uuid import uuid4
 from sdk.exceptions import AuthenticationError, NoResourcesAvailableError
 from sdk.models import VirtualMachine
-import os
 
 logger = logging.getLogger()
 
@@ -12,12 +11,11 @@ class Client:
     """
     A mock client to manage virtual machines
     """
-
     api_key: str | None
     authenticated: bool = False
 
     def __init__(self, api_key: str = None):
-        self.api_key = api_key or os.getenv("SDK_API_KEY", "default_key")
+        self.api_key = api_key
 
     def authenticate(self) -> bool:
         """
